@@ -6,24 +6,26 @@ $password = "t1o5t1@@";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
-$var = array();
+$result = array();
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-listaVagas();
+foreach (range('a', 'z') as $letra) {
+	array_push($result, listaVagas($letra));
+}
 
 $conn->close();
 
-echo json_encode($var);
+echo json_encode($result);
 
 // ********** funcoes ************
 
-function listaVagas() {
+function listaVagas($letra) {
 	global $conn;
-	global $var;
+	$var = array();
 
 	$sql = "SELECT * FROM SistemaCurriculum.vagas WHERE vagas.nome LIKE '$letra%'";
 	$result = $conn->query($sql);
@@ -42,6 +44,8 @@ function listaVagas() {
 			array_push($var, $vaga);
 	    }
 	}
+
+	return $var;
 }
 
 ?>

@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 <div class="container">
   <h2>Vagas de emprego</h2>
 
@@ -22,7 +21,6 @@
   </div>
 
 </div>
-
 
 <script type="text/javascript" src="vagas.js"></script>
 

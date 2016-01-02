@@ -1,12 +1,26 @@
+var todasVagas;
+
 $(document).ready(function() {
 	criaMenuBotoesLetras();
 	requisicao();
 
 	$("[id^='letra']").click(function(){
-		// console.log($(this).text());
-         // $("#tabelaVagas").hide();
+		criaTabelaVagas($(this).text().charCodeAt(0));
  	});
 });
+
+function requisicao() {
+	$.ajax({
+        url : "./php/vagas.php",
+        dataType : "json",
+
+        success : function(data) {
+        	todasVagas = data;
+        	criaTabelaVagas("");
+        }
+
+    });
+}
 
 function criaMenuBotoesLetras() {
 	var conteudo = "";
@@ -20,20 +34,7 @@ function criaMenuBotoesLetras() {
 	$("#menuBotoes").append(conteudo);	
 }
 
-function requisicao() {
-	$.ajax({
-        url : "./php/vagas.php",
-        dataType : "json",
-
-        success : function(data) {
-        	criaTabelaVagas(data);
-        	console.log(data);
-        }
-
-    });
-}
-
-function criaTabelaVagas(data) {
+function criaTabelaVagas(letra) {
 	var tabela = "<thead>"+
 				"<tr>"+
 			      "<th>Nome</th>"+
@@ -44,16 +45,49 @@ function criaTabelaVagas(data) {
 			  "</thead>"+
 			  "<tbody>";
 
-	for (var i = 0; i != data.length; ++i) {
-		tabela += "<tr class='vaga'>"+
-	 		      	"<td>"+data[i].nome+"</td>"+
-	 		      	"<td>"+data[i].empresa+"</td>"+
-	 		      	"<td>"+data[i].local+"</td>"+
-	 		      	"<td>"+data[i].qtdade+"</td>"+
- 		    	"</tr>";
-	}
+	if(letra == "")
+		tabela += mostrarTodasVagas();
+
+	else
+		tabela += mostrarVagasLetra(letra);
 
 	tabela +=  "</tbody>";
 
 	$("#tabelaVagas").html(tabela);
+}
+
+function mostrarTodasVagas(){
+	var str = "";
+
+
+	for (var i = 0; i != todasVagas.length; i++) {
+		if(todasVagas[i].length != 0){
+			for(var j= 0; j != todasVagas[i].length; j++)
+			str += "<tr class='vaga'>"+
+		 		      	"<td>"+todasVagas[i][j].nome+"</td>"+
+		 		      	"<td>"+todasVagas[i][j].empresa+"</td>"+
+		 		      	"<td>"+todasVagas[i][j].local+"</td>"+
+		 		      	"<td>"+todasVagas[i][j].qtdade+"</td>"+
+	 		    	"</tr>";
+		}
+	}
+
+	return str;
+}
+
+function mostrarVagasLetra(letra){
+	var str = "";
+	letra -=  65;
+
+	if(todasVagas[letra].length != 0){
+		for(var j= 0; j != todasVagas[letra].length; j++)
+			str += "<tr class='vaga'>"+
+		 		      	"<td>"+todasVagas[letra][j].nome+"</td>"+
+		 		      	"<td>"+todasVagas[letra][j].empresa+"</td>"+
+		 		      	"<td>"+todasVagas[letra][j].local+"</td>"+
+		 		      	"<td>"+todasVagas[letra][j].qtdade+"</td>"+
+	 		    	"</tr>";
+	}
+
+	return str;
 }
