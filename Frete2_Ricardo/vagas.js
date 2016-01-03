@@ -1,12 +1,24 @@
 var todasVagas;
+var cont = 0;
+
+criaMenuBotoesLetras();
+requisicao();	
 
 $(document).ready(function() {
-	criaMenuBotoesLetras();
-	requisicao();
-
 	$("[id^='letra']").click(function(){
 		criaTabelaVagas($(this).text().charCodeAt(0));
+
+		$("[id^='flip']").click(function(){
+	    	$(this).next().slideToggle("slow");
+	 		console.log("clicou");
+  		});
  	});
+
+	$("[id^='flip']").click(function(){
+    	$(this).next().slideToggle("slow");
+ 		console.log("clicou");
+  	});
+
 });
 
 function requisicao() {
@@ -35,15 +47,7 @@ function criaMenuBotoesLetras() {
 }
 
 function criaTabelaVagas(letra) {
-	var tabela = "<thead>"+
-				"<tr>"+
-			      "<th>Nome</th>"+
-			      "<th>Empresa</th>"+
-			      "<th>Local</th>"+
-			      "<th>Quantidade</th>"+
-			    "</tr>"+
-			  "</thead>"+
-			  "<tbody>";
+	var tabela = "";
 
 	if(letra == "")
 		tabela += mostrarTodasVagas();
@@ -51,24 +55,23 @@ function criaTabelaVagas(letra) {
 	else
 		tabela += mostrarVagasLetra(letra);
 
-	tabela +=  "</tbody>";
-
-	$("#tabelaVagas").html(tabela);
+	$("#nada").html(tabela);
 }
 
 function mostrarTodasVagas(){
 	var str = "";
 
-
 	for (var i = 0; i != todasVagas.length; i++) {
 		if(todasVagas[i].length != 0){
-			for(var j= 0; j != todasVagas[i].length; j++)
-			str += "<tr class='vaga'>"+
-		 		      	"<td>"+todasVagas[i][j].nome+"</td>"+
-		 		      	"<td>"+todasVagas[i][j].empresa+"</td>"+
-		 		      	"<td>"+todasVagas[i][j].local+"</td>"+
-		 		      	"<td>"+todasVagas[i][j].qtdade+"</td>"+
-	 		    	"</tr>";
+			for(var j= 0; j != todasVagas[i].length; j++){
+				str += '<p class="flip" id="flip'+cont+'"> <i class="fa fa-plus"></i> '+todasVagas[i][j].nome+'</p>'+
+					    '<div class="panel" id="panel'+cont+'">'+
+					    '<p>Empresa: '+todasVagas[i][j].empresa+'</p>'+
+					    '<p>Local: '+todasVagas[i][j].local+'</p>'+
+					    '<p>Quantidade: '+todasVagas[i][j].qtdade+' vagas</p>'+
+					    '</div>';
+				cont++;
+			}
 		}
 	}
 
@@ -80,14 +83,22 @@ function mostrarVagasLetra(letra){
 	letra -=  65;
 
 	if(todasVagas[letra].length != 0){
-		for(var j= 0; j != todasVagas[letra].length; j++)
-			str += "<tr class='vaga'>"+
-		 		      	"<td>"+todasVagas[letra][j].nome+"</td>"+
-		 		      	"<td>"+todasVagas[letra][j].empresa+"</td>"+
-		 		      	"<td>"+todasVagas[letra][j].local+"</td>"+
-		 		      	"<td>"+todasVagas[letra][j].qtdade+"</td>"+
-	 		    	"</tr>";
+		for(var j= 0; j != todasVagas[letra].length; j++) {
+			str += '<p class="flip" id="flip'+cont+'"> <i class="fa fa-plus"></i> '+todasVagas[letra][j].nome+'</p>'+
+				    '<div class="panel" id="panel'+cont+'">'+
+				    '<p>Empresa: '+todasVagas[letra][j].empresa+'</p>'+
+				    '<p>Local: '+todasVagas[letra][j].local+'</p>'+
+				    '<p>Quantidade: '+todasVagas[letra][j].qtdade+' vagas</p>'+
+				    '</div>';
+			cont++;
+		}
 	}
+
+	else{
+		str += "Não há vagas com a letra "+ String.fromCharCode(letra+65); +" no momento"
+	}
+
+	console.log(str);
 
 	return str;
 }
