@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cadastro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <link rel="stylesheet" href="./css/escola.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="menu"></div>
+
+<div class="container">
+    <h2>Formulário</h2>
+
+  <div class="panel panel-default panelCadastro">
+        <div class="panel-heading">
+            <h3 class="panel-title text-primary">Dados Pessoais</h3>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nome">Nome completo:</label>
+              <div class="col-sm-10">
+                <input type="nome" class="form-control" id="nome" placeholder="Digite seu nome completo">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nome">Escolaridade:</label>
+              <select class="form-control">
+                <option value="0"></option>
+                <option value="13">Doutorado Completo</option>
+                <option value="12">Doutorado Incompleto</option>
+                <option value="11">Mestrado Completo</option>
+                <option value="10">Mestrado Incompleto</option>
+                <option value="9">Pós-graduação Completa</option>
+                <option value="8">Pós-graduação Incompleta</option>
+                <option value="7">Superior Completo</option>
+                <option value="6">Superior Incompleto</option>
+                <option value="15">Ensino Médio Técnico (2º Grau) Completo</option>
+                <option value="5">Ensino Médio (2º Grau) Completo</option>
+                <option value="14">Ensino Médio Técnico (2º Grau) Incompleto</option>
+                <option value="4">Ensino Médio (2º Grau) Incompleto</option>
+                <option value="3">Ensino Fundamental (1º Grau) Completo</option>
+                <option value="2">Ensino Fundamental (1º Grau) Incompleto</option>
+                <option value="1">Não Alfabetizado</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nome">Sexo:</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    <input type="Radio" name="f_curric_sexo" value="1" onclick="MostraHelp(2,244,6);" id="Radio1">Masculino
+                  </label>
+                  <label class="radio-inline">
+                    <input type="Radio" name="f_curric_sexo" value="0" onclick="MostraHelp(2,244,6);" id="Radio2">Feminino
+                  </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="cpf">CPF:</label>
+              <div class="col-sm-10">
+                <input type="cpf" class="form-control" id="cpf" placeholder="Digite seu cpf">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Email:</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Telefone para contato:</label>
+              <div class="col-sm-10">
+                <input type="tel" class="form-control" id="tel" placeholder="Digite seu telefone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Login:</label>
+              <div class="col-sm-10">
+                <input type="login" class="form-control" id="login" placeholder="Digite seu login">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="senha">Senha:</label>
+              <div class="col-sm-10">          
+                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="cfSenha">Confirmação da senha:</label>
+              <div class="col-sm-10">          
+                <input type="password" class="form-control" id="cfSenha" placeholder="Confirme sua senha">
+              </div>
+            </div>
+          
+          </form>          
+        </div>
+  </div>
+
+  <div class="panel panel-default panelCadastro">
+        <div class="panel-heading">
+          <h3 class="panel-title text-primary">Cargo de interesse</h3>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nome">Cargo de interesse:</label>
+              <div class="col-sm-10">
+                <input type="nome" class="form-control" id="nome" placeholder="Digite o cargo de interesse">
+              </div>
+            </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="nome">Salário:</label>
+            <select>
+              <option selected="selected" value="0">Selecione</option>}
+              <option value="2">Até R$ 1.000,00</option>
+              <option value="3">A partir de R$ 1.000,00</option>
+              <option value="4">A partir de R$ 2.000,00</option>
+              <option value="5">A partir de R$ 3.000,00</option>
+              <option value="6">A partir de R$ 4.000,00</option>
+              <option value="7">A partir de R$ 5.000,00</option>
+              <option value="8">A partir de R$ 6.000,00</option>
+              <option value="9">A partir de R$ 7.000,00</option>
+              <option value="10">A partir de R$ 8.000,00</option>
+              <option value="11">A partir de R$ 9.000,00</option>
+              <option value="12">A partir de R$ 10.000,00</option>
+              <option value="13">A partir de R$ 15.000,00</option>
+              <option value="14">Acima de R$ 20.000,00</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="nome">Está desempregado?</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    <input type="Radio" name="f_curric_sexo" value="1" onclick="MostraHelp(2,244,6);" id="Radio1">Sim
+                  </label>
+                  <label class="radio-inline">
+                    <input type="Radio" name="f_curric_sexo" value="0" onclick="MostraHelp(2,244,6);" id="Radio2">Não
+                  </label>
+                </div>
+            </div>
+
+            
+            </div>
+          </form>          
+        </div>
+  </div>
+
+  <div class="form-group">        
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" name="enviar">Enviar</button>
+    </div>
+  </div>
+
+  
+</div>
+
+
+</body>
+</html>
+
+<!-- Nacionalidade com varios paises, usaremos apenas no futuro -->
+<!-- <div class="container">
+  <form role="form">
+  <div class="form-group">
+    <label for="sel1">Nacionalidade:</label>
+    <select name="f_curric_nacion" class="form-control">
+      <option value="0"></option>
+      <option value="2">Afegane</option>
+      <option value="4">Albanesa</option>
+      <option value="5">Alemã</option>
+      <option value="7">Andorrana</option>
+      <option value="8">Angolana</option>
+      <option value="9">Anguilla</option>
+      <option value="10">Antiguana</option>
+      <option value="259">Antilhana</option>
+      <option value="230">Árabe</option>
+      <option value="6">Argelina</option>
+      <option value="12">Argentina</option>
+      <option value="13">Armênia</option>
+      <option value="14">Aruba</option>
+      <option value="15">Australiana</option>
+      <option value="16">Austríaca</option>
+      <option value="17">Azerbaidjana</option>
+      <option value="18">Bahamense</option>
+      <option value="19">Bahrain</option>
+      <option value="21">Barbadiana</option>
+      <option value="23">Belga</option>
+      <option value="24">Belizenha</option>
+      <option value="20">Bengalesa</option>
+      <option value="25">Beninense</option>
+      <option value="26">Bermuda</option>
+      <option value="30">Betchuana</option>
+      <option value="27">Bhutan</option>
+      <option value="22">Bielorrusa</option>
+      <option value="28">Boliviana</option>
+      <option value="29">Bósnia</option>
+      <option value="31">Bouvet Islander</option>
+      <option selected="" value="32">Brasileira</option>
+      <option value="262">Britânica</option>
+      <option value="33">Brunei Darussalam</option>
+      <option value="34">Búlgara</option>
+      <option value="35">Burquinense</option>
+      <option value="36">Burundinesa</option>
+      <option value="37">Cabo-Verdiana</option>
+      <option value="39">Camaronesa</option>
+      <option value="38">Cambojana</option>
+      <option value="40">Canadense</option>
+      <option value="180">Centro-Africana</option>
+      <option value="41">Chad</option>
+      <option value="42">Chilena</option>
+      <option value="43">Chinesa</option>
+      <option value="94">Chinesa (Hong Kong)</option>
+      <option value="44">Chipriota</option>
+      <option value="45">Cidade do Vaticano</option>
+      <option value="203">Cingalesa</option>
+      <option value="199">Cingapura</option>
+      <option value="47">Colombiana</option>
+      <option value="48">Comorense</option>
+      <option value="49">Congolesa</option>
+      <option value="240">Congolesa</option>
+      <option value="53">Costa do Marfim</option>
+      <option value="52">Costarriquenha</option>
+      <option value="54">Croata</option>
+      <option value="55">Cubana</option>
+      <option value="56">Dinamarquesa</option>
+      <option value="57">Djiboutiense</option>
+      <option value="58">Dominicana</option>
+      <option value="181">Dominicana</option>
+      <option value="59">Egípcia</option>
+      <option value="61">Equatoriana</option>
+      <option value="62">Eritréia</option>
+      <option value="251">Escocesa</option>
+      <option value="243">Eslovaca</option>
+      <option value="201">Eslovena</option>
+      <option value="63">Espanhola</option>
+      <option value="65">Estoniana</option>
+      <option value="66">Etíope</option>
+      <option value="68">Fijiana</option>
+      <option value="69">Filipina</option>
+      <option value="70">Finlandesa</option>
+      <option value="71">Francesa</option>
+      <option value="72">Gabonesa</option>
+      <option value="256">Galesa</option>
+      <option value="73">Gambiana</option>
+      <option value="75">Ganesa</option>
+      <option value="74">Georgia</option>
+      <option value="76">Gibraltar</option>
+      <option value="79">Granadina</option>
+      <option value="78">Grega</option>
+      <option value="80">Groenlândia</option>
+      <option value="81">Guadalupe</option>
+      <option value="82">Guam</option>
+      <option value="83">Guatemalteca</option>
+      <option value="85">Guiana Francesa</option>
+      <option value="84">Guianense</option>
+      <option value="86">Guiné</option>
+      <option value="88">Guineana</option>
+      <option value="87">Guinéu-Equatoriana</option>
+      <option value="89">Haitiana</option>
+      <option value="92">Holandesa</option>
+      <option value="93">Hondurenha</option>
+      <option value="95">Húngara</option>
+      <option value="96">Iemenita</option>
+      <option value="97">Turks and Caicos Islander</option>
+      <option value="98">Ilhas Cayman</option>
+      <option value="99">Ilhas Christmas</option>
+      <option value="100">Ilhas Cook</option>
+      <option value="102">Ilhas Faroe</option>
+      <option value="105">Ilhas Norfolk</option>
+      <option value="106">Ilhas Northern Mariana</option>
+      <option value="107">Ilhas Sandwich</option>
+      <option value="109">Indiana</option>
+      <option value="110">Indonésia</option>
+      <option value="250">Inglesa</option>
+      <option value="111">Iraniana</option>
+      <option value="112">Iraquiana</option>
+      <option value="113">Irlandesa</option>
+      <option value="255">Irlandesa</option>
+      <option value="114">Islandia</option>
+      <option value="115">Israelense</option>
+      <option value="116">Italiana</option>
+      <option value="117">Iugoslávia</option>
+      <option value="118">Jamaicana</option>
+      <option value="119">Japonesa</option>
+      <option value="120">Jordaniana</option>
+      <option value="121">Kasaki</option>
+      <option value="122">Keniana</option>
+      <option value="123">Kiribatiana</option>
+      <option value="124">Kuwetiana</option>
+      <option value="125">Kyrgyzstan</option>
+      <option value="126">Laosiana</option>
+      <option value="127">Latvia</option>
+      <option value="197">Leonesa</option>
+      <option value="128">Lesotho</option>
+      <option value="129">Libanesa</option>
+      <option value="130">Liberiana</option>
+      <option value="131">Libia</option>
+      <option value="132">Liechtenstein</option>
+      <option value="133">Lituana</option>
+      <option value="134">Luxemburguesa</option>
+      <option value="135">Macau</option>
+      <option value="136">Macedônia</option>
+      <option value="138">Malaia</option>
+      <option value="139">Malauiana</option>
+      <option value="140">Maldívia</option>
+      <option value="137">Malgaxe</option>
+      <option value="141">Malinesa</option>
+      <option value="142">Maltesa</option>
+      <option value="154">Marroquina</option>
+      <option value="104">Marshallina</option>
+      <option value="143">Martinica</option>
+      <option value="144">Mauricius</option>
+      <option value="145">Mauritania</option>
+      <option value="146">Mayotte</option>
+      <option value="147">Mexicana</option>
+      <option value="148">Micronésia</option>
+      <option value="149">Moçambicana</option>
+      <option value="150">Moldova</option>
+      <option value="151">Mônaco</option>
+      <option value="152">Mongol</option>
+      <option value="153">Montserrat</option>
+      <option value="155">Myanmar</option>
+      <option value="156">Namibiana</option>
+      <option value="157">Nauruana</option>
+      <option value="165">Neozelandesa</option>
+      <option value="158">Nepalesa</option>
+      <option value="159">Nicaragüense</option>
+      <option value="160">Niger</option>
+      <option value="161">Nigeriana</option>
+      <option value="162">Niue</option>
+      <option value="64">Norte-Americana</option>
+      <option value="50">Norte-Coreana</option>
+      <option value="163">Norueguesa</option>
+      <option value="164">Nova Caledonia</option>
+      <option value="166">Omani</option>
+      <option value="167">Palauense</option>
+      <option value="168">Panamenha</option>
+      <option value="169">Papuásia</option>
+      <option value="170">Paquistanesa</option>
+      <option value="171">Paraguaia</option>
+      <option value="172">Peruana</option>
+      <option value="173">Pitcairn</option>
+      <option value="174">Polinésia</option>
+      <option value="175">Polonesa</option>
+      <option value="177">Porto Riquenha</option>
+      <option value="176">Portuguesa</option>
+      <option value="178">Quatar</option>
+      <option value="184">Reunion</option>
+      <option value="185">Romena</option>
+      <option value="186">Ruandesa</option>
+      <option value="67">Russa</option>
+      <option value="187">Sahara</option>
+      <option value="188">Saint Kitts and Nevis</option>
+      <option value="108">Salomônica</option>
+      <option value="60">Salvadorenha</option>
+      <option value="192">Samoa Americana</option>
+      <option value="191">Samoana</option>
+      <option value="193">San Marino</option>
+      <option value="189">Santa-Lucence</option>
+      <option value="195">São-Tomense</option>
+      <option value="190">São-Vicentina</option>
+      <option value="11">Saudita</option>
+      <option value="198">Seichelense</option>
+      <option value="196">Senegalesa</option>
+      <option value="261">Sérvia</option>
+      <option value="200">Síria</option>
+      <option value="202">Somali</option>
+      <option value="204">St. Helena</option>
+      <option value="211">Suazi</option>
+      <option value="206">Sudanesa</option>
+      <option value="207">Suéca</option>
+      <option value="208">Suiça</option>
+      <option value="3">Sul-Africana</option>
+      <option value="51">Sul-Coreana</option>
+      <option value="209">Surinamesa</option>
+      <option value="214">Tadjique</option>
+      <option value="212">Tailandesa</option>
+      <option value="213">Taiwanesa</option>
+      <option value="215">Tanzaniana</option>
+      <option value="183">Tcheca</option>
+      <option value="219">Timorense</option>
+      <option value="220">Togolesa</option>
+      <option value="221">Tokelau</option>
+      <option value="222">Tongolesa</option>
+      <option value="223">Trinitina</option>
+      <option value="224">Tunisiana</option>
+      <option value="226">Turca</option>
+      <option value="225">Turcomana</option>
+      <option value="227">Tuvaluana</option>
+      <option value="228">Ucraniana</option>
+      <option value="229">Ugandense</option>
+      <option value="231">Uruguaia</option>
+      <option value="233">Uzbeque</option>
+      <option value="234">Vanuatense</option>
+      <option value="235">Venezuelana</option>
+      <option value="236">Vietnamita</option>
+      <option value="237">Virgin Islands (British)</option>
+      <option value="238">Virgin Islands (U.S.)</option>
+      <option value="257">Walisiana</option>
+      <option value="241">Zambiana</option>
+      <option value="242">Zimbabuana</option>
+    </select>
+  </div>
+</div>  -->
