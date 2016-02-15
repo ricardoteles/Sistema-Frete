@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "t1o5t1@@";
+$password = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -48,4 +48,3 @@ function listaVagas($letra) {
 	return $var;
 }
 
-?>

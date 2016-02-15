@@ -1,0 +1,27 @@
+#nav01{
+    margin-left: 6%;
+    margin-top: 30px;
+}
+
+ul#navMenu {
+    padding: 0;
+    margin-bottom: 11px;
+}
+
+ul#navMenu li {
+    display: inline;
+    margin-right: 3px;
+}
+
+ul#navMenu li a {
+    background-color: #008cba;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#navMenu li a:hover {
+    color: white;
+    background-color: black;
+}

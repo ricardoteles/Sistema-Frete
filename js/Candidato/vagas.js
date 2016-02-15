@@ -2,9 +2,9 @@ var todasVagas;
 var cont = 0;
 
 criaMenuBotoesLetras();
-requisicao();	
+requisicao();
 
-$(document).ready(function() {
+$(document).ready(function() {	
 	$("[id^='letra']").click(function(){
 		criaTabelaVagas($(this).text().charCodeAt(0));
 
@@ -23,12 +23,16 @@ $(document).ready(function() {
 
 function requisicao() {
 	$.ajax({
-        url : "./php/vagas.php",
+        url : "http://localhost/Sistema-Frete/php/vagas.php",
         dataType : "json",
 
         success : function(data) {
         	todasVagas = data;
         	criaTabelaVagas("");
+        },
+
+        error: function(erro) {
+        	console.log("Ocorreu um erro");
         }
 
     });
