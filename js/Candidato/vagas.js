@@ -39,8 +39,9 @@ function requisicao() {
 }
 
 function criaMenuBotoesLetras() {
-	var conteudo = "";
-	var letra = '';
+	var letra = String.fromCharCode(35);
+	var conteudo = '<div class="btn btn-primary" id="letra'+letra+'">'+letra+'</div>';
+
 	
 	for (var i = 0; i != 26; ++i) {
 		letra = String.fromCharCode(i + 65);
@@ -53,7 +54,7 @@ function criaMenuBotoesLetras() {
 function criaTabelaVagas(letra) {
 	var tabela = "";
 
-	if(letra == "")
+	if(letra == "" || String.fromCharCode(letra) == "#")
 		tabela += mostrarTodasVagas();
 
 	else
