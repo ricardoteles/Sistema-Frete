@@ -13,9 +13,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-foreach (range('a', 'z') as $letra) {
-	array_push($result, listaVagas($letra));
-}
+// foreach (range('a', 'z') as $letra) {
+// 	array_push($result, listaVagas($letra));
+// }
 
 $conn->close();
 
@@ -30,21 +30,48 @@ function listaVagas($letra) {
 	$sql = "SELECT * FROM SistemaCurriculum.vagas WHERE vagas.nome LIKE '$letra%'";
 	$result = $conn->query($sql);
 
-	if ($result->num_rows > 0) {
+	// if ($result->num_rows > 0) {
 		
-    	// output data of each row
-	    while($row = $result->fetch_assoc()) {
-	    	$vaga = array(
-		        "nome"=>$row["nome"],
-		        "empresa"=>$row["empresa"],
-		        "local"=>$row["local"],
-		        "qtdade"=>$row["qtdade"]
-		    );
+ //    	// output data of each row
+	//     while($row = $result->fetch_assoc()) {
+	//     	$vaga = array(
+	// 	        "nome"=>$row["nome"],
+	// 	        "empresa"=>$row["empresa"],
+	// 	        "local"=>$row["local"],
+	// 	        "qtdade"=>$row["qtdade"]
+	// 	    );
 
-			array_push($var, $vaga);
-	    }
-	}
+	// 		array_push($var, $vaga);
+	//     }
+	// }
 
 	return $var;
 }
+
+
+
+// function listaVagas($letra) {
+// 	global $conn;
+// 	$var = array();
+
+// 	$sql = "SELECT * FROM SistemaCurriculum.vagas WHERE vagas.nome LIKE '$letra%'";
+// 	$result = $conn->query($sql);
+
+// 	if ($result->num_rows > 0) {
+		
+//     	// output data of each row
+// 	    while($row = $result->fetch_assoc()) {
+// 	    	$vaga = array(
+// 		        "nome"=>$row["nome"],
+// 		        "empresa"=>$row["empresa"],
+// 		        "local"=>$row["local"],
+// 		        "qtdade"=>$row["qtdade"]
+// 		    );
+
+// 			array_push($var, $vaga);
+// 	    }
+// 	}
+
+// 	return $var;
+// }
 
